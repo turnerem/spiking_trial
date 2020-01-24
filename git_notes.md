@@ -17,3 +17,8 @@
   - delete remotely: `git push origin --delete sausage-dog`
 - on local machine: switch between branches with `git checkout master`
 - other peeps may have updated stuff while you've been out on your branch. Pull down these changes: `git pull origin master`
+
+## Those pesky Untracked files
+- you can clean these up if you like.
+- to see what would be cleaned: `git clean -n`
+- if you're ok with LOSING EVERYTHING LISTED THERE, then: `git clean -f` to remove all files. Soz but it's a different command to delete directories.
