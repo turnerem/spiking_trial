@@ -3,10 +3,10 @@
 ## PROTECT THE MASTER
 We must keep master branch free from questionable code always (PROTECT THE MASTER). We will all work off of branches named after the section we are working on and commit to this branch only (PROTECT THE MASTER). When the time comes to merge our work into the main code base we will merge to a dev branch, set as default branch on git, and *not* the master branch (PROTECT THE MASTER). When the time comes to merge the *dev* to the master (we never merge the *sausage-dog* straight onto the master) we make a 'New pull request' on git, see below, and this must be approved of by another or two (PROTECT THE MASTER).
 
-We PROTECT THE MASTER with a few options on git:
-  - set dev to be the default branch.
-  - require approvals before merging to master
-  - git hooks can also prevent a bad push or commit
+We must PROTECT THE MASTER in three ways:
+  1. set dev to be the default branch.
+  2. require approvals before merging to master
+  3. git hooks can also prevent a bad push or commit
 
 ### Git Hooks:
 `npm install husky --save-dev`
@@ -22,6 +22,9 @@ E.g.:
 }
 ```
 Above example will run spec tests and linting with auto-fixing (where it can) before each commit.
+
+## Best Commit Practices
+- do you really need me to write these here?
 
 ## Branches
 - create branch locally: `git checkout -b sausage-dog`
