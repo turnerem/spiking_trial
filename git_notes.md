@@ -1,5 +1,28 @@
 # Working with Git as a Team
 
+## PROTECT THE MASTER
+We must keep master branch free from questionable code always (PROTECT THE MASTER). We will all work off of branches named after the section we are working on and commit to this branch only (PROTECT THE MASTER). When the time comes to merge our work into the main code base we will merge to a dev branch, set as default branch on git, and *not* the master branch (PROTECT THE MASTER). When the time comes to merge the *dev* to the master (we never merge the *sausage-dog* straight onto the master) we make a 'New pull request' on git, see below, and this must be approved of by another or two (PROTECT THE MASTER).
+
+We PROTECT THE MASTER with a few options on git:
+  - set dev to be the default branch.
+  - require approvals before merging to master
+  - git hooks can also prevent a bad push or commit
+
+### Git Hooks:
+`npm install husky --save-dev`
+E.g.:
+```{javascript}
+{
+  "husky": {
+    "hooks": {
+      "precommit": "npm t",
+      "posttest": "eslint ./ --fix"
+    }
+  }
+}
+```
+Above example will run spec tests and linting with auto-fixing (where it can) before each commit.
+
 ## Branches
 - create branch locally: `git checkout -b sausage-dog`
   - -b is for 'branch'
@@ -9,16 +32,16 @@
   - `git add niceFileName.py`
   - `git commit -m 'even nicer commit message'`
   - `git push origin sausage-dog`
-- ready to add to master: on git, on sausage-dog branch, click 'New pull request' to make request to pull branch into master
+- ready to add to dev: on git, on sausage-dog branch, click 'New pull request' to make request to pull branch into dev
   - if there are merge conflicts pull code into Node and sort them out
 - request a review (PROTECT THE MASTER)
 - when review is approved, delete branch so that it doesn't clog up the branch list:
   - delete locally: `git branch -d sausage-dog` (if branch has not yet been merged, an error will show phew)
   - delete remotely: `git push origin --delete sausage-dog`
-- on local machine: switch between branches with `git checkout master`
-- other peeps may have updated stuff while you've been out on your branch. Pull down these changes: `git pull origin master`
+- on local machine: switch between branches with `git checkout dev`
+- other peeps may have updated stuff while you've been out on your branch. Pull down these changes: `git pull origin dev`
 
-## Those pesky Untracked files
+### (aside)Those pesky Untracked files
 - you can clean these up if you like.
 - to see what would be cleaned: `git clean -n`
 - if you're ok with LOSING EVERYTHING LISTED THERE, then: `git clean -f` to remove all files. Soz but it's a different command to delete directories.
