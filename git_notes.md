@@ -3,10 +3,22 @@
 ## Branches
 - create branch locally: `git checkout -b sausage-dog`
   - -b is for 'branch'
-- push to that new branch: `git commit origin sausage-dog`
-- ready to add to master: on git, make pull request to pull branch into master
+  - hey what branch am I on?!?! `git branch`
+    - this shows all local branches and the branch that you are on. To see all branches on local and git: `git branch -a`. This is handy for checking whether a branch has only been created locally, or is also on git
+- ready to add to a branch?
+  - `git add niceFileName.py`
+  - `git commit -m 'even nicer commit message'`
+  - `git push origin sausage-dog`
+- ready to add to master: on git, on sausage-dog branch, click 'New pull request' to make request to pull branch into master
   - if there are merge conflicts pull code into Node and sort them out
 - request a review (PROTECT THE MASTER)
-- when review is approved, delete branch so that it doesn't clog up the branch list
-- now, on local machine, go back to the master branch: `git checkout master`
-- get changes from git: `git pull origin master`
+- when review is approved, delete branch so that it doesn't clog up the branch list:
+  - delete locally: `git branch -d sausage-dog` (if branch has not yet been merged, an error will show phew)
+  - delete remotely: `git push origin --delete sausage-dog`
+- on local machine: switch between branches with `git checkout master`
+- other peeps may have updated stuff while you've been out on your branch. Pull down these changes: `git pull origin master`
+
+## Those pesky Untracked files
+- you can clean these up if you like.
+- to see what would be cleaned: `git clean -n`
+- if you're ok with LOSING EVERYTHING LISTED THERE, then: `git clean -f` to remove all files. Soz but it's a different command to delete directories.
